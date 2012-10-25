@@ -1,0 +1,17 @@
+Change Log for RMQG.
+
+0.1: added decimal questions.
+
+0.2: changed all questions to 2 functions.
+
+24/11/2009-V0.3: compressed code. 
+
+26/11/2009-V0.4: added fraction questions.
+
+01/07/2011-V0.5: It now uses multiple files: main.cpp, types.cpp, types.h and global.cpp. Also each type of the four types of questions are in there own function now.
+
+04/07/2011-V0.5.1: It now uses one function to generate the numbers used in the basic questions. It also uses the time.h library to generate proper random numbers for the basic questions every time the program is run.
+
+09/07/2011-V0.5.2: It now uses one function to generate the numbers used in the decimal questions.
+
+04/08/2011-V0.5.3: It now outputs whether you got the questions right or wrong in the text file called "results.txt" file.
