@@ -14,9 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2012 Peter Wright
+// Copyright (C) 2011 - 2013 Peter Wright
 // author: peter wright
-// version: 0.5.3
+// version: 0.5.4
 // Random Maths Question Generator (RMQG)
 // Here are the global variables.
 
@@ -24,3 +24,4 @@ double qnum1;
 double qnum2;
 double qnuma1;
 double qnuma2;
+int count = 0;

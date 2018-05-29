@@ -14,9 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2012 Peter Wright
+// Copyright (C) 2011 - 2013 Peter Wright
 // author: peter wright
-// version: 0.5.3
+// version: 0.5.4
 // Random Maths Question Generator (RMQG)
 
 #include <iostream>
@@ -92,6 +92,7 @@ void MultiplyB()
     {
         correct();
         cout << "correct\n";
+        count++;
     }
     else
     {
@@ -112,6 +113,7 @@ void AddB ()
     {
         correct();
         cout << "correct\n";
+        count++;
     }
     else
     {
@@ -132,6 +134,7 @@ void SubtractB ()
     {
         correct();
         cout << "correct\n";
+        count++;
     }
     else
     {
@@ -152,6 +155,7 @@ void DivideB ()
     {
         correct();
         cout << "correct\n";
+        count++;
     }
     else
     {
@@ -173,6 +177,7 @@ void MultiplyD()
 	{
         correct();
         cout << "correct\n";
+        count++;
     }
 	else
 	{
@@ -194,6 +199,7 @@ void AddD()
 	{
         correct();
         cout << "correct\n";
+        count++;
     }
 	else
 	{
@@ -215,6 +221,7 @@ void SubtractD()
 	{
         correct();
         cout << "correct\n";
+        count++;
     }
 	else
 	{
@@ -236,6 +243,7 @@ void DivideD()
 	{
         correct();
         cout << "correct\n";
+        count++;
     }
 	else
 	{

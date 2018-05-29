@@ -16,7 +16,7 @@
 */
 // Copyright (C) 2011 Peter Wright
 // author: peter wright
-// version: 0.5.3
+// version: 0.5.4
 // Random Maths Question Generator (RMQG)
 
 #ifndef TYPES_H
@@ -40,5 +40,6 @@ extern double qnum2;
 extern double qnuma1;
 extern double qnuma2;
 extern char ans1;
+extern int count;
 
 #endif

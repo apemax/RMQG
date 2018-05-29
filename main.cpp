@@ -14,9 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2012 Peter Wright
+// Copyright (C) 2011 - 2013 Peter Wright
 // author: peter wright
-// version: 0.5.3
+// version: 0.5.4
 // Random Maths Question Generator (RMQG)
 
 #include <iostream>
@@ -30,6 +30,7 @@ int main( )
 {
     int qtype1;
     char ans1;
+    char ans3;
 
     cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 Peter Wright" << endl;
     cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
@@ -89,13 +90,13 @@ int main( )
         }
         cout << "do you want another question?(y/n): ";
         cin >> ans1;
+
+        cout << "do you what to know how many questions you got right?: ";
+        cin >> ans3;
+        if (ans3 == 'y' || ans3 == 'Y')
+            cout << "your score is " << count << endl;
     }
     while (ans1 == 'y' || ans1 == 'Y');
-	//cout << "do you what to know how many questions you got right?: ";
-	//cin >> ans3;
-	//if (ans3 == 'y' || ans3 == 'Y')
-	    //cout << "your score is " << count << endl;
-	//else
         cout << "thats all.\n";
     return 0;
 
