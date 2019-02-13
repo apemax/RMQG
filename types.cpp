@@ -14,24 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2013 Peter Wright
-// author: peter wright
-// version: 0.5.4
+// Copyright (C) 2011 - 2019 Peter Wright
+// Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <time.h>
 #include "types.h"
-using namespace std;
+#include "global.h"
 
 void correct()
 {
     string correctout;
     char results_file[20] = "results.txt";
-
-    //results_file = results.txt;
 
     correctout = "correct.";
 

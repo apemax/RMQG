@@ -18,26 +18,12 @@
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <time.h>
-using namespace std;
+#include "types.h"
+#include "global.h"
 
-#ifndef TYPES_H
-#define TYPES_H
+void Challenge()
+{
+  //Challenge mode.
 
-void correct();
-void GrandnumB();
-void GrandnumD();
-void MultiplyB();
-void AddB();
-void SubtractB();
-void DivideB();
-void MultiplyD();
-void AddD();
-void SubtractD();
-void DivideD();
-void qtypef();
-
-#endif
+  cout << "Challenge mode, Coming soon." << endl;
+}

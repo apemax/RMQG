@@ -14,92 +14,66 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2013 Peter Wright
-// author: peter wright
-// version: 0.5.4
+// Copyright (C) 2011 - 2019 Peter Wright
+// Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <time.h>
 #include "types.h"
-using namespace std;
+#include "global.h"
 
-int main( )
+int main(int argc, char *argv[])
 {
-    int qtype1;
-    char ans1;
-    char ans3;
+  int Opt1;
+  string running = "true";
 
-    cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 Peter Wright" << endl;
-    cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
-    cout << "This is free software, and you are welcome to redistribute it" << endl;
-    cout << "under certain conditions; for details see the file named COPYING in the program folder." << endl;
-    cout << " " << endl;
+  cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 - 2019 Peter Wright" << endl;
+  cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
+  cout << "This is free software, and you are welcome to redistribute it" << endl;
+  cout << "under certain conditions; for details see the file named COPYING in the program folder." << endl;
+  cout << " " << endl;
 
-    cout << "welcome to the random maths question generator.\n";
-    do
-    {
-        cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,% = 4.\n";
-        cout << "what type of question would you like to do?: ";
-        cin >> qtype1;
+  cout << "welcome to the random maths question generator." << endl;
+  cout << " " << endl;
 
-        switch (qtype1)
-        {
-            case 11:
-                MultiplyB();
+  while (running == "true")
+  {
+    cout << "1) Casual mode. 2) Challenge mode. 3) Help. 4) Exit." << endl;
+    cout << ">";
+    cin >> Opt1;
 
-                break;
+    switch (Opt1) {
+      case 1:
+      {
+        //Casual mode.
 
-			case 12:
-                AddB();
+        Casual();
 
-				break;
+        break;
+      }
+      case 2:
+      {
+        //Challenge mode, Coming soon.
 
-			case 13:
-                SubtractB();
+        Challenge();
 
-				break;
+        break;
+      }
+      case 3:
+      {
+        //Help.
 
-            case 14:
-                DivideB();
+        cout << "Help." << endl;
 
-                break;
+        break;
+      }
+      case 4:
+      {
+        running = "false";
 
-            case 21:
-                MultiplyD();
-
-                break;
-
-            case 22:
-                AddD();
-
-                break;
-
-            case 23:
-                SubtractD();
-
-                break;
-
-            case 24:
-                DivideD();
-
-                break;
-
-        }
-        cout << "do you want another question?(y/n): ";
-        cin >> ans1;
-
-        cout << "do you what to know how many questions you got right?: ";
-        cin >> ans3;
-        if (ans3 == 'y' || ans3 == 'Y')
-            cout << "your score is " << count << endl;
+        break;
+      }
     }
-    while (ans1 == 'y' || ans1 == 'Y');
-        cout << "thats all.\n";
-    return 0;
+  }
 
+  return 0;
 }
-
-

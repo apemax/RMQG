@@ -14,14 +14,20 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2013 Peter Wright
-// author: peter wright
-// version: 0.5.4
+// Copyright (C) 2011 - 2019 Peter Wright
+// Author: Peter Wright
 // Random Maths Question Generator (RMQG)
-// Here are the global variables.
+
+#include "types.h"
+#include "global.h"
+
+void Casual();
 
 double qnum1;
 double qnum2;
 double qnuma1;
 double qnuma2;
 int count = 0;
+int qtype1;
+char ans1;
+char ans2;
