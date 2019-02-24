@@ -28,9 +28,9 @@ void Casual()
     cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,% = 4.\n";
     cout << "what type of question would you like to do?" << endl;
     cout << ">";
-    cin >> qtype1;
+    cin >> qtypec;
 
-    switch (qtype1)
+    switch (qtypec)
     {
       case 11:
       {

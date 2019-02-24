@@ -36,7 +36,13 @@ extern double qnuma1;
 extern double qnuma2;
 extern int count;
 extern int qtype1;
+extern int qtype2;
+extern int qtypec;
+extern string qtypecl;
 extern char ans1;
 extern char ans2;
+extern string CLoption1;
+extern string CLoption2;
+extern string CLoption3;
 
 #endif

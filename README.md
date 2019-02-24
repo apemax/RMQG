@@ -16,6 +16,31 @@ Typing in 21 would make it show you a decimal multiply question.
 
 Coming soon.
 
+### Command line mode
+
+Allows you to output a list of questions to a file direct from the command line. Still Work In Progress.
+
+Usage: RMQG [Option] [Question type 1] [Question type 2] [Question count] filename
+
+Options:
+-o   Outputs a list of a specific type of question to a file.
+
+Question type 1:
+-b   Whole number questions.
+-d   Decimal number questions.
+
+Question type 2:
+-m   Multiply questions.
+-a   Addition questions.
+-s   Subtraction questions.
+-d   Division question.
+
+Question count:
+x   Number of questions to output.
+
+Examples:
+RMQG -o 1 2 10 list //Outputs a list of 10 whole number addition questions.
+
 ## Building
 
 ### Linux
