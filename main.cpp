@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
       cout << "x   Number of questions to output." << endl;
       cout << endl;
       cout << "Examples:" << endl;
-      cout << "RMQG -o 1 2 10 list //Outputs a list of 10 whole number addition questions." << endl;
+      cout << "RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions." << endl;
     }
     else
     {
@@ -158,16 +158,11 @@ int main(int argc, char *argv[])
       {
         CLOpt1 = 1;
       }
-      cout << qtype1 << qtype2 << endl;
-
-      cout << argv[2] << endl;
 
       switch(CLOpt1)
       {
         case 1:
         {
-          cout << "Working so far." << endl;
-
           ofstream Qlist_file(File_name, ios::out | ios::app);
 
           if(Qlist_file.is_open())
@@ -176,10 +171,8 @@ int main(int argc, char *argv[])
 
             for(int i = 0; i <= val; i++ )
             {
-              cout << "1" << endl;
               if(qtype1 == 1)
               {
-                cout << "2" << endl;
                 GrandnumB();
               }
               else if(qtype1 == 2)
@@ -199,8 +192,6 @@ int main(int argc, char *argv[])
       }
     }
   }
-
-
 
   return 0;
 }

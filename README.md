@@ -39,7 +39,7 @@ Question count:
 x   Number of questions to output.
 
 Examples:
-RMQG -o 1 2 10 list //Outputs a list of 10 whole number addition questions.
+RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions.
 
 ## Building
 
