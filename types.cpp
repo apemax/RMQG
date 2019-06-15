@@ -51,24 +51,12 @@ void wrong()
 
 void GrandnumB()
 {
-    time_t seconds;
-
-    time(&seconds);
-
-    srand((unsigned int) seconds);
-
     qnum1 = rand() % 30;
     qnum2 = rand() % 30;
 }
 
 void GrandnumD()
 {
-    time_t seconds;
-
-    time(&seconds);
-
-    srand((unsigned int) seconds);
-
     qnum1 = (RAND_MAX - rand( ))/static_cast<double>(RAND_MAX);
     qnum2 = (RAND_MAX - rand( ))/static_cast<double>(RAND_MAX);
 }

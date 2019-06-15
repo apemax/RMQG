@@ -28,6 +28,12 @@ int main(int argc, char *argv[])
   string File_name;
   string running = "true";
 
+  time_t seconds;
+
+  time(&seconds);
+
+  srand((unsigned int) seconds);
+
   cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 - 2019 Peter Wright" << endl;
   cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
   cout << "This is free software, and you are welcome to redistribute it" << endl;
