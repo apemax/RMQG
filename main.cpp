@@ -24,7 +24,6 @@
 int main(int argc, char *argv[])
 {
   int Opt1;
-  int CLOpt1;
   string File_name;
   string running = "true";
 
@@ -42,7 +41,7 @@ int main(int argc, char *argv[])
 
   if(argc <= 1)
   {
-    cout << "welcome to the random maths question generator." << endl;
+    cout << "welcome to the Random Maths Question Generator." << endl;
     cout << " " << endl;
 
     while (running == "true")
@@ -94,15 +93,14 @@ int main(int argc, char *argv[])
   else
   {
     CLoption1 = argv[1];
-    CLoption2 = argv[2];
-    CLoption3 = argv[3];
 
     if(CLoption1 == "-h")
     {
-      cout << "Usage: RMQG [Option] [Question type 1] [Question type 2] [Question count] filename" << endl;
+      cout << "Usage: RMQG [Options] [Question type 1] [Question type 2] [Question count] filename" << endl;
       cout << endl;
       cout << "Options:" << endl;
       cout << "-o   Outputs a list of a specific type of question to a file." << endl;
+      cout << "-c   Reads in and checks a list of questions that you have answered." << endl;
       cout << endl;
       cout << "Question type 1:" << endl;
       cout << "-b   Whole number questions." << endl;
@@ -119,9 +117,13 @@ int main(int argc, char *argv[])
       cout << endl;
       cout << "Examples:" << endl;
       cout << "RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions." << endl;
+      cout << "RMQG -c list //Reads in and checks questions answered in the file \"list\"." << endl;
     }
-    else
+    else if(CLoption1 == "-o")
     {
+      CLoption2 = argv[2];
+      CLoption3 = argv[3];
+
       if(CLoption2 == "-b")
       {
         qtype1 = 1;
@@ -154,41 +156,175 @@ int main(int argc, char *argv[])
 
       File_name = argv[5];
 
-      if(CLoption1 == "-o")
+      ofstream Qlist_file(File_name, ios::out | ios::app);
+
+      if(Qlist_file.is_open())
       {
-        CLOpt1 = 1;
+        int LineCount = stoi(argv[4]);
+
+        Qlist_file << "Line count=" << LineCount << endl;
+
+        for(int i = 0; i <= LineCount; i++ )
+        {
+          if(qtype1 == 1)
+          {
+            GrandnumB();
+          }
+          else if(qtype1 == 2)
+          {
+            GrandnumD();
+          }
+          Qlist_file << qnum1 << qtypecl << qnum2 << "=" << endl;
+        }
+      }
+      else
+      {
+        cout << "Unable to open file." << endl;
       }
 
-      switch(CLOpt1)
+      Qlist_file.close();
+    }
+    else if(CLoption1 == "-c")
+    {
+      File_name = argv[2];
+
+      ifstream Qlist_file(File_name, ios::in);
+
+      if(Qlist_file.is_open())
       {
-        case 1:
+        int LineCount;
+        string LoadLine;
+
+        getline(Qlist_file, LoadLine);
+
+        LineCount = stoi(LoadLine.substr(11, 2));
+
+        for(int i = 0; i <= LineCount; i++)
         {
-          ofstream Qlist_file(File_name, ios::out | ios::app);
+          getline(Qlist_file, LoadLine);
 
-          if(Qlist_file.is_open())
+          cout << LoadLine << endl;
+
+          for(unsigned int PosNum = 0; PosNum <= LoadLine.size(); PosNum++)
           {
-            int val = stoi(argv[4]);
+            string QType;
 
-            for(int i = 0; i <= val; i++ )
+            cout << PosNum << endl;
+
+            for(unsigned int PosNum3 = 0; PosNum3 <= LoadLine.size(); PosNum3++)
             {
-              if(qtype1 == 1)
+              if(LoadLine.substr(PosNum3, 1) == "+" || LoadLine.substr(PosNum3, 1) == "-" || LoadLine.substr(PosNum3, 1) == "x" || LoadLine.substr(PosNum3, 1) == "%")
               {
-                GrandnumB();
+                QType = LoadLine.substr(PosNum3, 1);
               }
-              else if(qtype1 == 2)
+            }
+
+            if(LoadLine.substr(PosNum, 1) == QType)
+            {
+              unsigned int Pos;
+              unsigned int Len;
+
+              if(PosNum == 1)
               {
-                GrandnumD();
+                Len = 1;
               }
-              Qlist_file << qnum1 << qtypecl << qnum2 << "=" << endl;
+              else if(PosNum == 2)
+              {
+                Len = 2;
+              }
+
+              qnum1 = stoi(LoadLine.substr(0, Len));
+
+              if(PosNum == 1)
+              {
+                Pos = 2;
+              }
+              else if(PosNum == 2)
+              {
+                Pos = 3;
+              }
+
+              for(unsigned int PosNum1 = 0; PosNum1 <= LoadLine.size(); PosNum1++)
+              {
+                if(LoadLine.substr(PosNum1, 1) == "=")
+                {
+                  if(PosNum1 == 3)
+                  {
+                    Len = 1;
+                  }
+                  else if(PosNum1 == 4)
+                  {
+                    Len = 2;
+                  }
+                }
+              }
+
+              qnum2 = stoi(LoadLine.substr(Pos, Len));
+
+              for(unsigned int PosNum2 = 0; PosNum2 <= LoadLine.size(); PosNum2++)
+              {
+                if(LoadLine.substr(PosNum2, 1) == "=")
+                {
+                  if(PosNum2 == 3)
+                  {
+                    Pos = 4;
+                  }
+                  else if(PosNum2 == 4)
+                  {
+                    Pos = 5;
+                  }
+                  else if(PosNum2 == 5)
+                  {
+                    Pos = 6;
+                  }
+
+                  if(PosNum2 == 3)
+                  {
+                    Len = 1;
+                  }
+                  else if(PosNum2 == 4)
+                  {
+                    Len = 2;
+                  }
+                }
+              }
+
+              qnuma2 = stoi(LoadLine.substr(Pos, Len));
+
+              cout << qnum1 << " | " << qnum2 << endl;
+
+              if(QType == "+")
+              {
+                qnuma1 = (qnum1 + qnum2);
+              }
+              else if(QType == "-")
+              {
+                qnuma1 = (qnum1 - qnum2);
+              }
+              else if(QType == "x")
+              {
+                qnuma1 = (qnum1 * qnum2);
+              }
+              else if(QType == "%")
+              {
+                qnuma1 = (qnum1 / qnum2);
+              }
+
+              if(qnuma1 == qnuma2)
+              {
+                cout << "Correct: " << qnuma1 << endl;
+              }
+              else
+              {
+                cout << "Wrong: " << qnuma1 << endl;
+              }
             }
           }
-          else
-          {
-            cout << "Unable to open file." << endl;
-          }
-
-          Qlist_file.close();
         }
+      }
+      else
+      {
+        cout << "Unable to open file." << endl;
       }
     }
   }
