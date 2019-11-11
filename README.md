@@ -24,25 +24,25 @@ Allows you to output a list of questions to a file direct from the command line.
 
 RMQG [Options] [Question type 1] [Question type 2] [Question count] filename
 
-Options:
--o   Outputs a list of a specific type of question to a file.
+Options:\
+-o   Outputs a list of a specific type of question to a file.\
 -c   Reads in and checks a list of questions that you have answered.
 
-Question type 1:
--b   Whole number questions.
+Question type 1:\
+-b   Whole number questions.\
 -d   Decimal number questions.
 
-Question type 2:
--m   Multiply questions.
--a   Addition questions.
--s   Subtraction questions.
+Question type 2:\
+-m   Multiply questions.\
+-a   Addition questions.\
+-s   Subtraction questions.\
 -d   Division question.
 
-Question count:
+Question count:\
 x   Number of questions to output.
 
-Examples:
-RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions.
+Examples:\
+RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions.\
 RMQG -c list //Reads in and checks questions answered in the file "list".
 
 ## Building
