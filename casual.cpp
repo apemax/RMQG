@@ -25,9 +25,10 @@ void Casual()
 {
   do
   {
-    cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,% = 4.\n";
+    cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,% = 4," << endl;
+    cout << "Random type of question = 5." << endl;
     cout << "what type of question would you like to do?" << endl;
-    cout << ">";
+    cout << "> ";
     cin >> qtypec;
 
     switch (qtypec)
@@ -56,6 +57,12 @@ void Casual()
 
         break;
       }
+      case 15:
+      {
+        RandomB();
+
+        break;
+      }
       case 21:
       {
         MultiplyD();
@@ -80,17 +87,27 @@ void Casual()
 
         break;
       }
+      case 25:
+      {
+        RandomD();
+
+        break;
+      }
     }
+
     cout << "do you want another question?(y/n)" << endl;
-    cout << ">";
+    cout << "> ";
+
     cin >> ans1;
 
     cout << "do you what to know how many questions you got right?(y/n)" << endl;
-    cout << ">";
+    cout << "> ";
+
     cin >> ans2;
+
     if (ans2 == 'y' || ans2 == 'Y')
     {
-      cout << "your score is " << count << endl;
+      cout << "your score is: " << count << endl;
     }
 
   }

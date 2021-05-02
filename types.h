@@ -38,6 +38,8 @@ void MultiplyD();
 void AddD();
 void SubtractD();
 void DivideD();
+void RandomB();
+void RandomD();
 void qtypef();
 
 #endif
