@@ -37,20 +37,21 @@ int main(int argc, char *argv[])
   cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
   cout << "This is free software, and you are welcome to redistribute it" << endl;
   cout << "under certain conditions; for details see the file named COPYING in the program folder." << endl;
-  cout << " " << endl;
+  cout << endl;
 
   if(argc <= 1)
   {
     cout << "welcome to the Random Maths Question Generator." << endl;
-    cout << " " << endl;
+    cout << endl;
 
     while (running == "true")
     {
       cout << "1) Casual mode. 2) Challenge mode. 3) Help. 4) Exit." << endl;
-      cout << ">";
+      cout << "> ";
       cin >> Opt1;
 
-      switch (Opt1) {
+      switch (Opt1)
+      {
         case 1:
         {
           //Casual mode.
@@ -70,7 +71,7 @@ int main(int argc, char *argv[])
         case 3:
         {
           //Help.
-          cout << " " << endl;
+          cout << endl;
           cout << "Casual mode." << endl;
           cout << "When it asks you what type of question you would like to do type in either 1 for" << endl;
           cout << "basic questions followed by what type of basic question you want to do or 2 for" << endl;
@@ -111,6 +112,7 @@ int main(int argc, char *argv[])
       cout << "-a   Addition questions." << endl;
       cout << "-s   Subtraction questions." << endl;
       cout << "-d   Division question." << endl;
+      cout << "-r   A random type of question." << endl;
       cout << endl;
       cout << "Question count:" << endl;
       cout << "x   Number of questions to output." << endl;
@@ -153,6 +155,10 @@ int main(int argc, char *argv[])
         qtype2 = 4;
         qtypecl = "%";
       }
+      else if (CLoption3 == "-r")
+      {
+        qtype2 = 5;
+      }
 
       File_name = argv[5];
 
@@ -174,6 +180,40 @@ int main(int argc, char *argv[])
           {
             GrandnumD();
           }
+
+          if (qtype2 == 5)
+          {
+            int RandOptCL = rand() % 3;
+
+            switch (RandOptCL)
+            {
+              case 0:
+              {
+                qtypecl = "x";
+
+                break;
+              }
+              case 1:
+              {
+                qtypecl = "+";
+
+                break;
+              }
+              case 2:
+              {
+                qtypecl = "-";
+
+                break;
+              }
+              case 3:
+              {
+                qtypecl = "%";
+
+                break;
+              }
+            }
+          }
+
           Qlist_file << qnum1 << qtypecl << qnum2 << "=" << endl;
         }
       }
@@ -203,13 +243,9 @@ int main(int argc, char *argv[])
         {
           getline(Qlist_file, LoadLine);
 
-          cout << LoadLine << endl;
-
           for(unsigned int PosNum = 0; PosNum <= LoadLine.size(); PosNum++)
           {
             string QType;
-
-            cout << PosNum << endl;
 
             for(unsigned int PosNum3 = 0; PosNum3 <= LoadLine.size(); PosNum3++)
             {
@@ -284,7 +320,11 @@ int main(int argc, char *argv[])
                   }
                   else if(PosNum2 == 4)
                   {
-                    Len = 2;
+                    Len = 3;
+                  }
+                  else if(PosNum2 == 5)
+                  {
+                    Len = 3;
                   }
                 }
               }
@@ -313,10 +353,14 @@ int main(int argc, char *argv[])
               if(qnuma1 == qnuma2)
               {
                 cout << "Correct: " << qnuma1 << endl;
+
+                PosNum = LoadLine.size();
               }
               else
               {
                 cout << "Wrong: " << qnuma1 << endl;
+
+                PosNum = LoadLine.size();
               }
             }
           }
