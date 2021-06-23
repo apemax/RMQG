@@ -36,7 +36,8 @@ Question type 2:\
 -m   Multiply questions.\
 -a   Addition questions.\
 -s   Subtraction questions.\
--d   Division question.
+-d   Division question.\
+-r   A random type of question.
 
 Question count:\
 x   Number of questions to output.
