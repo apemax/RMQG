@@ -14,12 +14,14 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2019 Peter Wright
+// Copyright (C) 2011 - 2022 Peter Wright
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
 #include "types.h"
 #include "global.h"
+
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -27,13 +29,7 @@ int main(int argc, char *argv[])
   string File_name;
   string running = "true";
 
-  time_t seconds;
-
-  time(&seconds);
-
-  srand((unsigned int) seconds);
-
-  cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 - 2019 Peter Wright" << endl;
+  cout << "Random Maths Question Generator (RMQG) Copyright (C) 2011 - 2022 Peter Wright" << endl;
   cout << "This program comes with ABSOLUTELY NO WARRANTY; for details see the file named COPYING in the program folder." << endl;
   cout << "This is free software, and you are welcome to redistribute it" << endl;
   cout << "under certain conditions; for details see the file named COPYING in the program folder." << endl;
@@ -46,7 +42,7 @@ int main(int argc, char *argv[])
 
     while (running == "true")
     {
-      cout << "1) Casual mode. 2) Challenge mode. 3) Help. 4) Exit." << endl;
+      cout << "1) Casual mode. 2) Challenge mode. 3) Generate question list. 4) Help. 5) Exit." << endl;
       cout << "> ";
       cin >> Opt1;
 
@@ -70,11 +66,37 @@ int main(int argc, char *argv[])
         }
         case 3:
         {
+          cout << "1) Whole number questions. 2) Decimal number questions." << endl;
+          cout << "> ";
+
+          cin >> CLoption2;
+
+          cout << "1) Multiply questions. 2) Addition questions. 3) Subtraction questions. 4) Division question. 5) A random type of question." << endl;
+          cout << "> ";
+
+          cin >> CLoption3;
+
+          cout << "Number of questions to output:" << endl;
+          cout << "> ";
+
+          cin >> CLoption4;
+
+          cout << "File name for the list file:" << endl;
+          cout << "> ";
+
+          cin >> File_name;
+
+          Listgen(CLoption2, CLoption3, CLoption4, File_name);
+
+          break;
+        }
+        case 4:
+        {
           //Help.
           cout << endl;
           cout << "Casual mode." << endl;
           cout << "When it asks you what type of question you would like to do type in either 1 for" << endl;
-          cout << "basic questions followed by what type of basic question you want to do or 2 for" << endl;
+          cout << "whole number questions followed by what type of basic question you want to do or 2 for" << endl;
           cout << "decimal questions followed by what type of decimal question you would like to do." << endl;
           cout << "Here's a couple of examples:" << endl;
           cout << "Typing in 11 would make it show you a basic multiply question." << endl;
@@ -82,7 +104,7 @@ int main(int argc, char *argv[])
 
           break;
         }
-        case 4:
+        case 5:
         {
           running = "false";
 
@@ -123,107 +145,9 @@ int main(int argc, char *argv[])
     }
     else if(CLoption1 == "-o")
     {
-      CLoption2 = argv[2];
-      CLoption3 = argv[3];
-
-      if(CLoption2 == "-b")
-      {
-        qtype1 = 1;
-      }
-      else if(CLoption2 == "-d")
-      {
-        qtype1 = 2;
-      }
-
-      if(CLoption3 == "-m")
-      {
-        qtype2 = 1;
-        qtypecl = "x";
-      }
-      else if(CLoption3 == "-a")
-      {
-        qtype2 = 2;
-        qtypecl = "+";
-      }
-      else if(CLoption3 == "-s")
-      {
-        qtype2 = 3;
-        qtypecl = "-";
-      }
-      else if(CLoption3 == "-d")
-      {
-        qtype2 = 4;
-        qtypecl = "%";
-      }
-      else if (CLoption3 == "-r")
-      {
-        qtype2 = 5;
-      }
-
-      File_name = argv[5];
-
-      ofstream Qlist_file(File_name, ios::out | ios::app);
-
-      if(Qlist_file.is_open())
-      {
-        int LineCount = stoi(argv[4]);
-
-        Qlist_file << "Line count=" << LineCount << endl;
-
-        for(int i = 0; i <= LineCount; i++ )
-        {
-          if(qtype1 == 1)
-          {
-            GrandnumB();
-          }
-          else if(qtype1 == 2)
-          {
-            GrandnumD();
-          }
-
-          if (qtype2 == 5)
-          {
-            int RandOptCL = rand() % 3;
-
-            switch (RandOptCL)
-            {
-              case 0:
-              {
-                qtypecl = "x";
-
-                break;
-              }
-              case 1:
-              {
-                qtypecl = "+";
-
-                break;
-              }
-              case 2:
-              {
-                qtypecl = "-";
-
-                break;
-              }
-              case 3:
-              {
-                qtypecl = "%";
-
-                break;
-              }
-            }
-          }
-
-          Qlist_file << qnum1 << qtypecl << qnum2 << "=" << endl;
-        }
-      }
-      else
-      {
-        cout << "Unable to open file." << endl;
-      }
-
-      Qlist_file.close();
+      Listgen(argv[2], argv[3], argv[4], argv[5]);
     }
+
     else if(CLoption1 == "-c")
     {
       File_name = argv[2];
@@ -249,7 +173,7 @@ int main(int argc, char *argv[])
 
             for(unsigned int PosNum3 = 0; PosNum3 <= LoadLine.size(); PosNum3++)
             {
-              if(LoadLine.substr(PosNum3, 1) == "+" || LoadLine.substr(PosNum3, 1) == "-" || LoadLine.substr(PosNum3, 1) == "x" || LoadLine.substr(PosNum3, 1) == "%")
+              if(LoadLine.substr(PosNum3, 1) == "+" || LoadLine.substr(PosNum3, 1) == "-" || LoadLine.substr(PosNum3, 1) == "x" || LoadLine.substr(PosNum3, 1) == "÷")
               {
                 QType = LoadLine.substr(PosNum3, 1);
               }
@@ -331,7 +255,7 @@ int main(int argc, char *argv[])
 
               qnuma2 = stoi(LoadLine.substr(Pos, Len));
 
-              cout << qnum1 << " | " << qnum2 << endl;
+              cout << qnum1 << QType << qnum2 << endl;
 
               if(QType == "+")
               {
@@ -345,20 +269,20 @@ int main(int argc, char *argv[])
               {
                 qnuma1 = (qnum1 * qnum2);
               }
-              else if(QType == "%")
+              else if(QType == "÷")
               {
                 qnuma1 = (qnum1 / qnum2);
               }
 
               if(qnuma1 == qnuma2)
               {
-                cout << "Correct: " << qnuma1 << endl;
+                cout << "Correct, The answer: " << qnuma1 << endl;
 
                 PosNum = LoadLine.size();
               }
               else
               {
-                cout << "Wrong: " << qnuma1 << endl;
+                cout << "Wrong, The correct answer is: " << qnuma1 << endl;
 
                 PosNum = LoadLine.size();
               }

@@ -7,7 +7,7 @@ BUILD_DIR = build
 
 BIN = RMQG
 
-_OBJ = main.o casual.o challenge.o types.o global.o
+_OBJ = main.o casual.o challenge.o types.o global.o listgen.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 .SECONDEXPANSION:

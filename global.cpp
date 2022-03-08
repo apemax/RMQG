@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2019 Peter Wright
+// Copyright (C) 2011 - 2022 Peter Wright
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
@@ -37,3 +37,4 @@ char ans2;
 string CLoption1;
 string CLoption2;
 string CLoption3;
+string CLoption4;

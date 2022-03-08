@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2019 Peter Wright
+// Copyright (C) 2011 - 2022 Peter Wright
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
@@ -29,6 +29,7 @@ using namespace std;
 
 void Casual();
 void Challenge();
+void Listgen(string Opt1, string Opt2, string Opt3, string Filename);
 
 extern double qnum1;
 extern double qnum2;
@@ -44,5 +45,6 @@ extern char ans2;
 extern string CLoption1;
 extern string CLoption2;
 extern string CLoption3;
+extern string CLoption4;
 
 #endif
