@@ -49,7 +49,7 @@ void Listgen(string Opt1, string Opt2, string Opt3, string Filename)
   else if(Opt2 == "-d" || Opt2 == "4")
   {
     qtype2 = 4;
-    qtypecl = "÷";
+    qtypecl = "/";
   }
   else if (Opt2 == "-r" || Opt2 == "5")
   {
@@ -101,7 +101,7 @@ void Listgen(string Opt1, string Opt2, string Opt3, string Filename)
           }
           case 3:
           {
-            qtypecl = "÷";
+            qtypecl = "/";
 
             break;
           }

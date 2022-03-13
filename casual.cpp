@@ -25,7 +25,7 @@ void Casual()
 {
   do
   {
-    cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,% = 4," << endl;
+    cout << "1 = basic, 2 = decimal. x = 1,+ = 2,- = 3,/ = 4," << endl;
     cout << "Random type of question = 5." << endl;
     cout << "what type of question would you like to do?" << endl;
     cout << "> ";

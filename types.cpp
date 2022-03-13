@@ -152,7 +152,7 @@ void DivideB ()
 {
   GrandnumB();
 
-  cout << qnum1 << "%" << qnum2 << endl;
+  cout << qnum1 << "/" << qnum2 << endl;
   cout << "answer: ";
 
   cin >> qnuma2;
@@ -271,7 +271,7 @@ void DivideD()
 {
   GrandnumD();
 
-  cout << qnum1 << "%" << qnum2 << endl;
+  cout << qnum1 << "/" << qnum2 << endl;
   cout << "Note: only enter 5 numbers after the decimal point." << endl;
 	cout << "answer: ";
 
