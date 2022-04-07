@@ -14,12 +14,14 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2019 Peter Wright
+// Copyright (C) 2011 - 2022 Peter Wright
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
 #include "types.h"
 #include "global.h"
+
+using namespace std;
 
 void correct()
 {
@@ -51,14 +53,28 @@ void wrong()
 
 void GrandnumB()
 {
-  qnum1 = rand() % 30;
-  qnum2 = rand() % 30;
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::uniform_int_distribution<int> dist(1, 30);
+  qnum1 = dist(mt);
+  qnum2 = dist(mt);
 }
 
 void GrandnumD()
 {
-  qnum1 = (RAND_MAX - rand( ))/static_cast<double>(RAND_MAX);
-  qnum2 = (RAND_MAX - rand( ))/static_cast<double>(RAND_MAX);
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::uniform_real_distribution<double> dist(0.0, 1.0);
+  qnum1 = dist(mt);
+  qnum2 = dist(mt);
+}
+
+int GrandOpt()
+{
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::uniform_int_distribution<int> dist(0, 3);
+  return dist(mt);
 }
 
 void MultiplyB()
@@ -292,16 +308,14 @@ void DivideD()
 	else
 	{
     wrong();
-    
+
     cout << "wrong" << endl;
   }
 }
 
 void RandomB()
 {
-  int RandOpt;
-
-  RandOpt = rand() % 3;
+  int RandOpt = GrandOpt();
 
   switch (RandOpt)
   {
@@ -334,9 +348,8 @@ void RandomB()
 
 void RandomD()
 {
-  int RandOpt;
-
-  RandOpt = rand() % 3;
+  //int RandOpt = rand() % 3;
+  int RandOpt = GrandOpt();
 
   switch (RandOpt)
   {
@@ -369,7 +382,7 @@ void RandomD()
 
 // This next function is for fractions but as of now i don't know how to do it yet.
 // So it will sit here until i figure out how to do fractions in C++. :)
-
+/*
 void qtypef()
 {
 	double qnum1,
@@ -388,3 +401,4 @@ void qtypef()
 	cin >> qnuma2;
 
 }
+*/

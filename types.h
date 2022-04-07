@@ -14,14 +14,16 @@
     You should have received a copy of the GNU General Public License
     along with RMQG.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Copyright (C) 2011 - 2019 Peter Wright
+// Copyright (C) 2011 - 2022 Peter Wright
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <random>
 #include <time.h>
+
 using namespace std;
 
 #ifndef TYPES_H
@@ -30,6 +32,7 @@ using namespace std;
 void correct();
 void GrandnumB();
 void GrandnumD();
+int GrandOpt();
 void MultiplyB();
 void AddB();
 void SubtractB();
@@ -40,6 +43,6 @@ void SubtractD();
 void DivideD();
 void RandomB();
 void RandomD();
-void qtypef();
+//void qtypef();
 
 #endif

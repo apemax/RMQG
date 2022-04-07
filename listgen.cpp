@@ -77,7 +77,7 @@ void Listgen(string Opt1, string Opt2, string Opt3, string Filename)
 
       if (qtype2 == 5)
       {
-        int RandOptCL = rand() % 3;
+        int RandOptCL = GrandOpt();
 
         switch (RandOptCL)
         {
