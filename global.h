@@ -22,6 +22,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <time.h>
+
 using namespace std;
 
 #ifndef GLOBAL_H
@@ -29,7 +30,7 @@ using namespace std;
 
 void Casual();
 void Challenge();
-void Listgen(string Opt1, string Opt2, string Opt3, string Filename);
+void Listgen(string Opt1, string Opt2, string Opt3, string Opt4, string Opt5, string Filename);
 void Listcheck(string Filename);
 
 extern double qnum1;
@@ -40,6 +41,10 @@ extern int count;
 extern int qtype1;
 extern int qtype2;
 extern int qtypec;
+extern int BRangeMin;
+extern int BRangeMax;
+extern double DRangeMin;
+extern double DRangeMax;
 extern string qtypecl;
 extern char ans1;
 extern char ans2;
@@ -47,5 +52,7 @@ extern string CLoption1;
 extern string CLoption2;
 extern string CLoption3;
 extern string CLoption4;
+extern string CLoption5;
+extern string CLoption6;
 
 #endif

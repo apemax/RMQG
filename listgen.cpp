@@ -21,37 +21,43 @@
 #include "types.h"
 #include "global.h"
 
-void Listgen(string Opt1, string Opt2, string Opt3, string Filename)
+void Listgen(string Opt1, string Opt2, string Opt3, string Opt4, string Opt5, string Filename)
 {
   if(Opt1 == "-b" || Opt1 == "1")
   {
     qtype1 = 1;
+
+    BRangeMin = stoi(Opt2);
+    BRangeMax = stoi(Opt3);
   }
   else if(Opt1 == "-d" || Opt1 == "2")
   {
     qtype1 = 2;
+
+    DRangeMin = stoi(Opt2);
+    DRangeMax = stoi(Opt3);
   }
-  if(Opt2 == "-m" || Opt2 == "1")
+  if(Opt4 == "-m" || Opt4 == "1")
   {
     qtype2 = 1;
     qtypecl = "x";
   }
-  else if(Opt2 == "-a" || Opt2 == "2")
+  else if(Opt4 == "-a" || Opt4 == "2")
   {
     qtype2 = 2;
     qtypecl = "+";
   }
-  else if(Opt2 == "-s" || Opt2 == "3")
+  else if(Opt4 == "-s" || Opt4 == "3")
   {
     qtype2 = 3;
     qtypecl = "-";
   }
-  else if(Opt2 == "-d" || Opt2 == "4")
+  else if(Opt4 == "-d" || Opt4 == "4")
   {
     qtype2 = 4;
     qtypecl = "/";
   }
-  else if (Opt2 == "-r" || Opt2 == "5")
+  else if (Opt4 == "-r" || Opt4 == "5")
   {
     qtype2 = 5;
   }
@@ -60,7 +66,7 @@ void Listgen(string Opt1, string Opt2, string Opt3, string Filename)
 
   if(Qlist_file.is_open())
   {
-    int LineCount = stoi(Opt3);
+    int LineCount = stoi(Opt5);
 
     Qlist_file << "Line count=" << LineCount << endl;
 

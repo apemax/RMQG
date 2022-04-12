@@ -71,22 +71,41 @@ int main(int argc, char *argv[])
 
           cin >> CLoption2;
 
+          if (CLoption2 == "1")
+          {
+            cout << "Please enter a minimum and maximum range of numbers to use." << endl;
+            cout << "Default is Min = 1, Max = 10." << endl;
+            cout << "Minimum: ";
+            cin >> CLoption3;
+            cout << "Maximum: ";
+            cin >> CLoption4;
+          }
+          else if (CLoption2 == "2")
+          {
+            cout << "Please enter a minimum and maximum range of numbers to use." << endl;
+            cout << "Default is Min = 0.1, Max = 10." << endl;
+            cout << "Minimum: ";
+            cin >> CLoption3;
+            cout << "Maximum: ";
+            cin >> CLoption4;
+          }
+
           cout << "1) Multiply questions. 2) Addition questions. 3) Subtraction questions. 4) Division question. 5) A random type of question." << endl;
           cout << "> ";
 
-          cin >> CLoption3;
+          cin >> CLoption5;
 
           cout << "Number of questions to output:" << endl;
           cout << "> ";
 
-          cin >> CLoption4;
+          cin >> CLoption6;
 
           cout << "File name for the list file:" << endl;
           cout << "> ";
 
           cin >> File_name;
 
-          Listgen(CLoption2, CLoption3, CLoption4, File_name);
+          Listgen(CLoption2, CLoption3, CLoption4, CLoption5, CLoption6, File_name);
 
           break;
         }
@@ -126,8 +145,8 @@ int main(int argc, char *argv[])
       cout << "-c   Reads in and checks a list of questions that you have answered." << endl;
       cout << endl;
       cout << "Question type 1:" << endl;
-      cout << "-b   Whole number questions." << endl;
-      cout << "-d   Decimal number questions." << endl;
+      cout << "-b   Whole number questions followed by Min and Max number range, Example: 1 10" << endl;
+      cout << "-d   Decimal number questions followed by Min and Max number range. Example: 0.1 1.0" << endl;
       cout << endl;
       cout << "Question type 2:" << endl;
       cout << "-m   Multiply questions." << endl;
@@ -140,12 +159,12 @@ int main(int argc, char *argv[])
       cout << "x   Number of questions to output." << endl;
       cout << endl;
       cout << "Examples:" << endl;
-      cout << "RMQG -o -b -a 10 list //Outputs a list of 10 whole number addition questions." << endl;
+      cout << "RMQG -o -b 1 10 -a 10 list //Outputs a list of 10 whole number addition questions within th erange of 1 to 10." << endl;
       cout << "RMQG -c list //Reads in and checks questions answered in the file \"list\"." << endl;
     }
     else if(CLoption1 == "-o")
     {
-      Listgen(argv[2], argv[3], argv[4], argv[5]);
+      Listgen(argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
     }
 
     else if(CLoption1 == "-c")
