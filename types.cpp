@@ -18,6 +18,8 @@
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
+#include <chrono>
+#include <iomanip>
 #include "types.h"
 #include "global.h"
 
@@ -378,6 +380,50 @@ void RandomD()
       break;
     }
   }
+}
+
+void ChallengeB()
+{
+  cout << fixed;
+  cout << setprecision(0);
+
+  auto StartTimer1 = chrono::steady_clock::now();
+
+  for (size_t i = 0; i < 20; i++)
+  {
+    RandomB();
+  }
+
+  auto EndTimer1 = chrono::steady_clock::now();
+
+  chrono::duration<double> ChallengeTime = EndTimer1 - StartTimer1;
+
+  cout << fixed;
+  cout << setprecision(2);
+
+  cout << "Your time was: " << ChallengeTime.count() << "seconds" << endl;
+}
+
+void ChallengeD()
+{
+  cout << fixed;
+  cout << setprecision(5);
+
+  auto StartTimer1 = chrono::steady_clock::now();
+
+  for (size_t i = 0; i < 20; i++)
+  {
+    RandomD();
+  }
+
+  auto EndTimer1 = chrono::steady_clock::now();
+
+  chrono::duration<double> ChallengeTime = EndTimer1 - StartTimer1;
+
+  cout << fixed;
+  cout << setprecision(2);
+
+  cout << "Your time was: " << ChallengeTime.count() << "Seconds." << endl;
 }
 
 // This next function is for fractions but as of now i don't know how to do it yet.

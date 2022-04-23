@@ -43,6 +43,8 @@ void SubtractD();
 void DivideD();
 void RandomB();
 void RandomD();
+void ChallengeB();
+void ChallengeD();
 //void qtypef();
 
 #endif
