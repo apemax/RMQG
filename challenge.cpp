@@ -33,6 +33,7 @@ void Challenge()
   while (CRunning == true)
   {
     cout << "1) Start a Challenge. 2) View saved results. 3) Exit." << endl;
+    cout << "> ";
     cin >> OptC1;
 
     switch (OptC1)
@@ -40,6 +41,7 @@ void Challenge()
       case 1:
       {
         cout << "Choose type of questions, 1) Whole numbers. 2) Decimal numbers." << endl;
+        cout << "> ";
         cin >> OptC2;
 
         switch (OptC2)
@@ -47,9 +49,10 @@ void Challenge()
           case 1:
           {
             cout << "Choose range of numbers. 1) 1 - 10. 2) 10 - 100. 3) 100 - 1000." << endl;
+            cout << "> ";
             cin >> OptC3;
 
-            cout << "Ready? ";
+            cout << "Ready?" << endl;
 
             std::this_thread::sleep_for(std::chrono::seconds(1));
 
@@ -91,7 +94,14 @@ void Challenge()
           case 2:
           {
             cout << "Choose range of numbers. 1) 0.1 - 1.0. 2) 1.0 - 10.0. 3) 10.0 - 100.0." << endl;
+            cout << "> ";
             cin >> OptC3;
+
+            cout << "Ready?" << endl;
+
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+
+            cout << "Go!" << endl;
 
             switch (OptC3)
             {
