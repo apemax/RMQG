@@ -350,7 +350,6 @@ void RandomB()
 
 void RandomD()
 {
-  //int RandOpt = rand() % 3;
   int RandOpt = GrandOpt();
 
   switch (RandOpt)
@@ -384,6 +383,7 @@ void RandomD()
 
 void ChallengeB()
 {
+  int SROpt;
   cout << fixed;
   cout << setprecision(0);
 
@@ -402,10 +402,21 @@ void ChallengeB()
   cout << setprecision(2);
 
   cout << "Your time was: " << ChallengeTime.count() << "seconds" << endl;
+
+  cout << "Do you want to save your result to the leaderboard? 1) Yes. 2) No." << endl;
+  cin >> SROpt;
+
+  if (SROpt == 1)
+  {
+    BChallengeLeaderboard[BLeaderboard][BSubLeaderboard][BLeaderboardPosition] = ChallengeTime.count();
+
+    BLeaderboardPosition++;
+  }
 }
 
 void ChallengeD()
 {
+  int SROpt;
   cout << fixed;
   cout << setprecision(5);
 
@@ -424,6 +435,16 @@ void ChallengeD()
   cout << setprecision(2);
 
   cout << "Your time was: " << ChallengeTime.count() << "Seconds." << endl;
+
+  cout << "Do you want to save your result to the leaderboard? 1) Yes. 2) No." << endl;
+  cin >> SROpt;
+
+  if (SROpt == 1)
+  {
+    DChallengeLeaderboard[DLeaderboard][DSubLeaderboard][DLeaderboardPosition] = ChallengeTime.count();
+
+    DLeaderboardPosition++;
+  }
 }
 
 // This next function is for fractions but as of now i don't know how to do it yet.

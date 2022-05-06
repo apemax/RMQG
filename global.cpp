@@ -21,12 +21,22 @@
 #include "types.h"
 #include "global.h"
 
+using namespace std;
+
 void Casual();
 
 double qnum1;
 double qnum2;
 double qnuma1;
 double qnuma2;
+double BChallengeLeaderboard[2][3][10];
+double DChallengeLeaderboard[2][3][10];
+int BLeaderboardPosition = 0;
+int DLeaderboardPosition = 0;
+int BLeaderboard;
+int DLeaderboard;
+int BSubLeaderboard;
+int DSubLeaderboard;
 int count = 0;
 int qtypec;
 int qtype1;

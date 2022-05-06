@@ -23,6 +23,16 @@
 #include "types.h"
 #include "global.h"
 
+using namespace std;
+
+void OutputLeaderboard(int Leaderboard, int SubLeaderboard)
+{
+  for (int Position = 0; Position < 9; Position++)
+  {
+    cout << Position << ". " << BChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] << " Seconds." << endl;
+  }
+}
+
 void Challenge()
 {
   int OptC1;
@@ -32,7 +42,7 @@ void Challenge()
 
   while (CRunning == true)
   {
-    cout << "1) Start a Challenge. 2) View saved results. 3) Exit." << endl;
+    cout << "1) Start a Challenge. 2) View Leaderboard. 3) Exit." << endl;
     cout << "> ";
     cin >> OptC1;
 
@@ -48,6 +58,8 @@ void Challenge()
         {
           case 1:
           {
+            BLeaderboard = 0;
+
             cout << "Choose range of numbers. 1) 1 - 10. 2) 10 - 100. 3) 100 - 1000." << endl;
             cout << "> ";
             cin >> OptC3;
@@ -64,6 +76,7 @@ void Challenge()
               {
                 BRangeMin = 1;
                 BRangeMax = 10;
+                BSubLeaderboard = 0;
 
                 ChallengeB();
 
@@ -73,6 +86,7 @@ void Challenge()
               {
                 BRangeMin = 10;
                 BRangeMax = 100;
+                BSubLeaderboard = 1;
 
                 ChallengeB();
 
@@ -82,6 +96,7 @@ void Challenge()
               {
                 BRangeMin = 100;
                 BRangeMax = 1000;
+                BSubLeaderboard = 2;
 
                 ChallengeB();
 
@@ -93,6 +108,7 @@ void Challenge()
           }
           case 2:
           {
+            DLeaderboard = 1;
             cout << "Choose range of numbers. 1) 0.1 - 1.0. 2) 1.0 - 10.0. 3) 10.0 - 100.0." << endl;
             cout << "> ";
             cin >> OptC3;
@@ -109,6 +125,7 @@ void Challenge()
               {
                 DRangeMin = 0.1;
                 DRangeMax = 1.0;
+                DSubLeaderboard = 0;
 
                 ChallengeD();
 
@@ -118,6 +135,7 @@ void Challenge()
               {
                 DRangeMin = 1.0;
                 DRangeMax = 10.0;
+                DSubLeaderboard = 1;
 
                 ChallengeD();
 
@@ -127,6 +145,7 @@ void Challenge()
               {
                 DRangeMin = 10.0;
                 DRangeMax = 100.0;
+                DSubLeaderboard = 2;
 
                 ChallengeD();
 
@@ -142,9 +161,88 @@ void Challenge()
       }
       case 2:
       {
-        //Saved results.
+        int OptL1;
+        int OptL2;
 
-        cout << "Saved results." << endl;
+        cout << "1) Whole number leaderboards. 2) Decimal number leaderboards." << endl;
+        cout << "> ";
+        cin >> OptL1;
+
+        switch (OptL1)
+        {
+          case 1:
+          {
+            BLeaderboard = 0;
+            cout << "1) 1 - 10 leaderboard. 2) 10 - 100 leaderboard. 3) 100 - 1000 leaderboard." << endl;
+            cout << "> ";
+            cin >> OptL2;
+
+            switch (OptL2)
+            {
+              case 1:
+              {
+                BSubLeaderboard = 0;
+
+                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+
+                break;
+              }
+              case 2:
+              {
+                BSubLeaderboard = 1;
+
+                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+
+                break;
+              }
+              case 3:
+              {
+                BSubLeaderboard = 2;
+
+                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+
+                break;
+              }
+            }
+            break;
+          }
+          case 2:
+          {
+            DLeaderboard = 1;
+            cout << "1) 0.1 - 1.0 leaderboard. 2) 1.0 - 10.0 leaderboard. 3) 10.0 - 100.0 leaderboard." << endl;
+            cout << "> ";
+            cin >> OptL2;
+
+            switch (OptL2)
+            {
+              case 1:
+              {
+                DSubLeaderboard = 0;
+
+                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+
+                break;
+              }
+              case 2:
+              {
+                DSubLeaderboard = 1;
+
+                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+
+                break;
+              }
+              case 3:
+              {
+                DSubLeaderboard = 2;
+
+                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+
+                break;
+              }
+            }
+            break;
+          }
+        }
 
         break;
       }
