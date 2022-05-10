@@ -18,12 +18,42 @@
 // Author: Peter Wright
 // Random Maths Question Generator (RMQG)
 
+#include <algorithm>
 #include <chrono>
 #include <thread>
 #include "types.h"
 #include "global.h"
 
 using namespace std;
+
+void SortLeaderboard()
+{
+  int SLeaderboard = 0;
+  int SSubLeaderboard = 0;
+  double BTmpLeaderboard[10];
+  double DTmpLeaderboard[10];
+
+  for (; SLeaderboard < 1; SLeaderboard++)
+  {
+    for (; SSubLeaderboard < 2; SSubLeaderboard++)
+    {
+      for (int Position = 0; Position < 10; Position++)
+      {
+        BTmpLeaderboard[Position] = BChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position];
+        DTmpLeaderboard[Position] = DChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position];
+      }
+
+      std::sort(BTmpLeaderboard, BTmpLeaderboard + 10);
+      std::sort(DTmpLeaderboard, DTmpLeaderboard + 10);
+
+      for (int Position = 0; Position < 10; Position++)
+      {
+        BChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = BTmpLeaderboard[Position];
+        DChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = DTmpLeaderboard[Position];
+      }
+    }
+  }
+}
 
 void OutputLeaderboard(int Leaderboard, int SubLeaderboard)
 {

@@ -411,6 +411,8 @@ void ChallengeB()
     BChallengeLeaderboard[BLeaderboard][BSubLeaderboard][BLeaderboardPosition] = ChallengeTime.count();
 
     BLeaderboardPosition++;
+
+    SortLeaderboard();
   }
 }
 
@@ -444,6 +446,8 @@ void ChallengeD()
     DChallengeLeaderboard[DLeaderboard][DSubLeaderboard][DLeaderboardPosition] = ChallengeTime.count();
 
     DLeaderboardPosition++;
+
+    SortLeaderboard();
   }
 }
 

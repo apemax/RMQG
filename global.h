@@ -32,6 +32,7 @@ void Casual();
 void Challenge();
 void Listgen(string Opt1, string Opt2, string Opt3, string Opt4, string Opt5, string Filename);
 void Listcheck(string Filename);
+void SortLeaderboard();
 
 extern double qnum1;
 extern double qnum2;
