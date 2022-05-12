@@ -408,9 +408,9 @@ void ChallengeB()
 
   if (SROpt == 1)
   {
-    BChallengeLeaderboard[BLeaderboard][BSubLeaderboard][BLeaderboardPosition] = ChallengeTime.count();
+    ChallengeLeaderboard[Leaderboard][SubLeaderboard][LeaderboardPosition] = ChallengeTime.count();
 
-    BLeaderboardPosition++;
+    LeaderboardPosition++;
 
     SortLeaderboard();
   }
@@ -443,9 +443,9 @@ void ChallengeD()
 
   if (SROpt == 1)
   {
-    DChallengeLeaderboard[DLeaderboard][DSubLeaderboard][DLeaderboardPosition] = ChallengeTime.count();
+    ChallengeLeaderboard[Leaderboard][SubLeaderboard][LeaderboardPosition] = ChallengeTime.count();
 
-    DLeaderboardPosition++;
+    LeaderboardPosition++;
 
     SortLeaderboard();
   }

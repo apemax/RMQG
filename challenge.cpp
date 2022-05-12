@@ -30,8 +30,7 @@ void SortLeaderboard()
 {
   int SLeaderboard = 0;
   int SSubLeaderboard = 0;
-  double BTmpLeaderboard[10];
-  double DTmpLeaderboard[10];
+  double TmpLeaderboard[10];
 
   for (; SLeaderboard < 1; SLeaderboard++)
   {
@@ -39,17 +38,14 @@ void SortLeaderboard()
     {
       for (int Position = 0; Position < 10; Position++)
       {
-        BTmpLeaderboard[Position] = BChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position];
-        DTmpLeaderboard[Position] = DChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position];
+        TmpLeaderboard[Position] = ChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position];
       }
 
-      std::sort(BTmpLeaderboard, BTmpLeaderboard + 10);
-      std::sort(DTmpLeaderboard, DTmpLeaderboard + 10);
+      std::sort(TmpLeaderboard, TmpLeaderboard + 10);
 
       for (int Position = 0; Position < 10; Position++)
       {
-        BChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = BTmpLeaderboard[Position];
-        DChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = DTmpLeaderboard[Position];
+        ChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = TmpLeaderboard[Position];
       }
     }
   }
@@ -59,7 +55,7 @@ void OutputLeaderboard(int Leaderboard, int SubLeaderboard)
 {
   for (int Position = 0; Position < 9; Position++)
   {
-    cout << Position << ". " << BChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] << " Seconds." << endl;
+    cout << Position << ". " << ChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] << " Seconds." << endl;
   }
 }
 
@@ -88,7 +84,7 @@ void Challenge()
         {
           case 1:
           {
-            BLeaderboard = 0;
+            Leaderboard = 0;
 
             cout << "Choose range of numbers. 1) 1 - 10. 2) 10 - 100. 3) 100 - 1000." << endl;
             cout << "> ";
@@ -106,7 +102,7 @@ void Challenge()
               {
                 BRangeMin = 1;
                 BRangeMax = 10;
-                BSubLeaderboard = 0;
+                SubLeaderboard = 0;
 
                 ChallengeB();
 
@@ -116,7 +112,7 @@ void Challenge()
               {
                 BRangeMin = 10;
                 BRangeMax = 100;
-                BSubLeaderboard = 1;
+                SubLeaderboard = 1;
 
                 ChallengeB();
 
@@ -126,7 +122,7 @@ void Challenge()
               {
                 BRangeMin = 100;
                 BRangeMax = 1000;
-                BSubLeaderboard = 2;
+                SubLeaderboard = 2;
 
                 ChallengeB();
 
@@ -138,7 +134,7 @@ void Challenge()
           }
           case 2:
           {
-            DLeaderboard = 1;
+            Leaderboard = 1;
             cout << "Choose range of numbers. 1) 0.1 - 1.0. 2) 1.0 - 10.0. 3) 10.0 - 100.0." << endl;
             cout << "> ";
             cin >> OptC3;
@@ -155,7 +151,7 @@ void Challenge()
               {
                 DRangeMin = 0.1;
                 DRangeMax = 1.0;
-                DSubLeaderboard = 0;
+                SubLeaderboard = 0;
 
                 ChallengeD();
 
@@ -165,7 +161,7 @@ void Challenge()
               {
                 DRangeMin = 1.0;
                 DRangeMax = 10.0;
-                DSubLeaderboard = 1;
+                SubLeaderboard = 1;
 
                 ChallengeD();
 
@@ -175,7 +171,7 @@ void Challenge()
               {
                 DRangeMin = 10.0;
                 DRangeMax = 100.0;
-                DSubLeaderboard = 2;
+                SubLeaderboard = 2;
 
                 ChallengeD();
 
@@ -202,7 +198,7 @@ void Challenge()
         {
           case 1:
           {
-            BLeaderboard = 0;
+            Leaderboard = 0;
             cout << "1) 1 - 10 leaderboard. 2) 10 - 100 leaderboard. 3) 100 - 1000 leaderboard." << endl;
             cout << "> ";
             cin >> OptL2;
@@ -211,25 +207,25 @@ void Challenge()
             {
               case 1:
               {
-                BSubLeaderboard = 0;
+                SubLeaderboard = 0;
 
-                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
               case 2:
               {
-                BSubLeaderboard = 1;
+                SubLeaderboard = 1;
 
-                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
               case 3:
               {
-                BSubLeaderboard = 2;
+                SubLeaderboard = 2;
 
-                OutputLeaderboard(BLeaderboard, BSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
@@ -238,7 +234,7 @@ void Challenge()
           }
           case 2:
           {
-            DLeaderboard = 1;
+            Leaderboard = 1;
             cout << "1) 0.1 - 1.0 leaderboard. 2) 1.0 - 10.0 leaderboard. 3) 10.0 - 100.0 leaderboard." << endl;
             cout << "> ";
             cin >> OptL2;
@@ -247,25 +243,25 @@ void Challenge()
             {
               case 1:
               {
-                DSubLeaderboard = 0;
+                SubLeaderboard = 0;
 
-                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
               case 2:
               {
-                DSubLeaderboard = 1;
+                SubLeaderboard = 1;
 
-                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
               case 3:
               {
-                DSubLeaderboard = 2;
+                SubLeaderboard = 2;
 
-                OutputLeaderboard(DLeaderboard, DSubLeaderboard);
+                OutputLeaderboard(Leaderboard, SubLeaderboard);
 
                 break;
               }
