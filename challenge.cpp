@@ -53,9 +53,25 @@ void SortLeaderboard()
 
 void OutputLeaderboard(int Leaderboard, int SubLeaderboard)
 {
-  for (int Position = 0; Position < 9; Position++)
+  int OutputPosition = 1;
+
+  for (int Position = 0; Position < 10; Position++)
   {
-    cout << Position << ". " << ChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] << " Seconds." << endl;
+    if (ChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] != 0)
+    {
+      cout << OutputPosition << ". " << ChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] << " Seconds." << endl;
+
+      OutputPosition++;
+    }
+  }
+  for (int Position = 0; Position < 10; Position++)
+  {
+    if (ChallengeLeaderboard[Leaderboard][SubLeaderboard][Position] == 0)
+    {
+      cout << OutputPosition << ". " << endl;
+
+      OutputPosition++;
+    }
   }
 }
 
