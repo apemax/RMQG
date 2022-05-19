@@ -413,6 +413,7 @@ void ChallengeB()
     LeaderboardPosition++;
 
     SortLeaderboard();
+    SaveLeaderboard();
   }
 }
 
@@ -448,6 +449,7 @@ void ChallengeD()
     LeaderboardPosition++;
 
     SortLeaderboard();
+    SaveLeaderboard();
   }
 }
 
