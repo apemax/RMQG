@@ -59,9 +59,9 @@ void SortLeaderboard()
   int SSubLeaderboard = 0;
   double TmpLeaderboard[10];
 
-  for (; SLeaderboard < 1; SLeaderboard++)
+  for (; SLeaderboard < 2; SLeaderboard++)
   {
-    for (; SSubLeaderboard < 2; SSubLeaderboard++)
+    for (; SSubLeaderboard < 3; SSubLeaderboard++)
     {
       for (int Position = 0; Position < 10; Position++)
       {
