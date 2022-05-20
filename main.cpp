@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
     cout << "welcome to the Random Maths Question Generator." << endl;
     cout << endl;
 
+    LoadLeaderboard();
+
     while (running == "true")
     {
       cout << "1) Casual mode. 2) Challenge mode. 3) Generate question list. 4) Help. 5) Exit." << endl;

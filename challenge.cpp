@@ -53,6 +53,36 @@ void SaveLeaderboard()
   }
 }
 
+void LoadLeaderboard()
+{
+  string LeaderboardFilename = "leaderboard";
+  string LoadLine;
+
+  ifstream LeaderboardFile(LeaderboardFilename, ios::in);
+
+  if (LeaderboardFile.is_open())
+  {
+    for (int SLeaderboard = 0; SLeaderboard < 2; SLeaderboard++)
+    {
+      for (int SSubLeaderboard = 0; SSubLeaderboard < 3; SSubLeaderboard++)
+      {
+        for (int Position = 0; Position < 10; Position++)
+        {
+          getline(LeaderboardFile, LoadLine);
+
+          ChallengeLeaderboard[SLeaderboard][SSubLeaderboard][Position] = stod(LoadLine);
+        }
+      }
+    }
+
+    LeaderboardFile.close();
+  }
+  else
+  {
+    cout << "Unable to open leaderboard file." << endl;
+  }
+}
+
 void SortLeaderboard()
 {
   int SLeaderboard = 0;
