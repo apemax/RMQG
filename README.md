@@ -14,7 +14,9 @@ Typing in 21 would make it show you a decimal number multiply question.
 
 ### Challenge mode
 
-Coming soon.
+Challenge mode asks you 20 random questions in three different ranges for both whole and decimal numbers and records the time it takes to answer all of them and how many questions you got right. First you select the type of question, Then the range for the numbers, Then you have to answer the 20 questions as quick as possible.
+
+Once you have answered all the questions you will then be asked whether you want the results saved to the leaderboard. You can then view your previous saved results in the leaderboard.
 
 ### Command line mode
 
